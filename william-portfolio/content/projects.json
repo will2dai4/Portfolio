@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Distributed Trading System",
+    "blurb": "Built high-frequency trading infrastructure handling 100k+ requests/sec with 99.9% uptime",
+    "tech": ["Go", "Redis", "PostgreSQL", "Docker"],
+    "href": "",
+    "repo": "https://github.com/williamdai/trading-system"
+  },
+  {
+    "title": "Real-time Analytics Platform",
+    "blurb": "Developed streaming data pipeline processing 1TB+ daily market data with sub-100ms latency",
+    "tech": ["Kafka", "Spark", "Python", "Kubernetes"],
+    "href": "https://analytics.example.com",
+    "repo": "https://github.com/williamdai/analytics-platform"
+  },
+  {
+    "title": "ML Model Deployment Framework",
+    "blurb": "Created automated ML pipeline reducing model deployment time from weeks to hours",
+    "tech": ["Python", "TensorFlow", "AWS", "CI/CD"],
+    "href": "",
+    "repo": "https://github.com/williamdai/ml-framework"
+  }
+]
