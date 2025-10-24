@@ -1,13 +1,10 @@
 "use client"
 
-import { useState } from "react"
 import { Terminal } from "@/components/terminal"
 import { TypingText } from "@/components/typing-text"
 import Link from "next/link"
 
 export default function Home() {
-  const [showContent, setShowContent] = useState(false)
-
   return (
     <div className="min-h-screen flex">
       {/* Left Content Area */}
@@ -19,26 +16,18 @@ export default function Home() {
               <TypingText
                 text="William Dai"
                 delay={80}
-                onComplete={() => setTimeout(() => setShowContent(true), 300)}
               />
             </h1>
-            {showContent && (
-              <>
-                <p className="text-xl text-muted-foreground">University of Waterloo</p>
-                <p className="text-xl text-terminal-green">Software Engineer</p>
-              </>
-            )}
+            <p className="text-xl text-muted-foreground">CS @ University of Waterloo</p>
           </div>
 
           {/* Quick points */}
-          {showContent && (
-            <div className="space-y-4 animate-in fade-in duration-500">
+          <div className="space-y-4">
               <div className="space-y-2">
                 <h2 className="text-lg text-primary">$ cat experience.txt</h2>
                 <ul className="space-y-1 text-muted-foreground pl-4">
                   <li>→ Full-stack development with Django, PostgreSQL, Next.js</li>
                   <li>→ Built automation tools increasing sales outreach by 10x</li>
-                  <li>→ Web design & SEO optimization</li>
                   <li>→ Hackathon organizer & founder</li>
                 </ul>
               </div>
@@ -46,9 +35,9 @@ export default function Home() {
               <div className="space-y-2">
                 <h2 className="text-lg text-primary">$ ls projects/</h2>
                 <ul className="space-y-1 text-muted-foreground pl-4">
-                  <li>→ aMolecuwar: Educational chemistry game (Godot, Python)</li>
+                  <li>→ UWPlanit: Course graph & planner (Next.js, PostgreSQL)</li>
+                  <li>→ Molecuwar: Educational chemistry game (Godot, Python)</li>
                   <li>→ RaiderStrike-Server: Multiplayer shooter server (Java)</li>
-                  <li>→ Various full-stack web applications</li>
                 </ul>
               </div>
 
@@ -81,11 +70,10 @@ export default function Home() {
 
               {/* Terminal hint */}
               <div className="pt-8 text-sm text-muted-foreground">
-                <p>💡 Try the terminal on the right →</p>
+                <p>Try the terminal on the right →</p>
                 <p className="text-xs mt-1">Type "help" to see available commands</p>
               </div>
-            </div>
-          )}
+          </div>
         </div>
       </div>
 
