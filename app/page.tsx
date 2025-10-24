@@ -23,8 +23,24 @@ export default function Home() {
 
           {/* Quick points */}
           <div className="space-y-4">
+              {/* Projects */}
               <div className="space-y-2">
-                <h2 className="text-lg text-primary">$ cat experience.txt</h2>
+                <h2 className="text-lg text-primary">
+                  $ cat <Link href="/projects" className="underline hover:text-primary/80 transition-colors">projects</Link>
+                </h2>
+                <ul className="space-y-1 text-muted-foreground pl-4">
+                  <li>→ UWPlanit: Course graph & planner</li>
+                  <li>→ Ai Dente: AI-powered pantry manager</li>
+                  <li>→ Molecuwar: Educational chemistry game</li>
+                  <li>→ RaiderStrike: Multiplayer shooter game</li>
+                </ul>
+              </div>
+
+              {/* Experiences */}
+              <div className="space-y-2">
+                <h2 className="text-lg text-primary">
+                  $ cat <Link href="/experiences" className="underline hover:text-primary/80 transition-colors">experiences</Link>
+                </h2>
                 <ul className="space-y-1 text-muted-foreground pl-4">
                   <li>→ Full-stack development with Django, PostgreSQL, Next.js</li>
                   <li>→ Built automation tools increasing sales outreach by 10x</li>
@@ -32,18 +48,9 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="space-y-2">
-                <h2 className="text-lg text-primary">$ ls projects/</h2>
-                <ul className="space-y-1 text-muted-foreground pl-4">
-                  <li>→ UWPlanit: Course graph & planner (Next.js, PostgreSQL)</li>
-                  <li>→ Molecuwar: Educational chemistry game (Godot, Python)</li>
-                  <li>→ RaiderStrike-Server: Multiplayer shooter server (Java)</li>
-                </ul>
-              </div>
-
               {/* Links */}
               <div className="space-y-2 pt-4">
-                <h2 className="text-lg text-primary">$ cat links.txt</h2>
+                <h2 className="text-lg text-primary">$ cat links</h2>
                 <div className="flex flex-wrap gap-4 pl-4">
                   <Link
                     href="https://github.com/will2dai4"
