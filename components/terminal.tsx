@@ -46,7 +46,7 @@ export function Terminal({ currentPath }: TerminalProps) {
     },
     ls: {
       description: "List available pages",
-      action: () => ["Available pages:", "  home", "  projects", "  blogs", ""],
+      action: () => ["home", "  projects", "  experiences", ""],
     },
     cd: {
       description: "Navigate to a page",
@@ -96,7 +96,6 @@ export function Terminal({ currentPath }: TerminalProps) {
       action: () => [
         "Contact Information:",
         "  Email: william.dai@uwaterloo.ca",
-        "  Phone: +1-647-285-7887",
         "  GitHub: github.com/will2dai4",
         "  LinkedIn: linkedin.com/in/william-dai-uw",
         "",
@@ -106,7 +105,7 @@ export function Terminal({ currentPath }: TerminalProps) {
       description: "List technical skills",
       action: () => [
         "Technical Skills:",
-        "  Languages: Python, C++, C, Java, JavaScript, SQL",
+        "  Languages: Python, C++, C, Java, JavaScript",
         "  Frameworks: Django, Flask, Next.js, PostgreSQL",
         "  Tools: Linux/Unix, Git, Docker, AWS Lambda",
         "",

@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex">
+    <div className="h-screen flex overflow-hidden">
       {/* Left Content Area */}
       <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center">
         <div className="max-w-2xl space-y-8">
@@ -29,10 +29,9 @@ export default function Home() {
                   $ cat <Link href="/projects" className="underline hover:text-primary/80 transition-colors">projects</Link>
                 </h2>
                 <ul className="space-y-1 text-muted-foreground pl-4">
-                  <li>→ UWPlanit: Course graph & planner</li>
-                  <li>→ Ai Dente: AI-powered pantry manager</li>
-                  <li>→ Molecuwar: Educational chemistry game</li>
-                  <li>→ RaiderStrike: Multiplayer shooter game</li>
+                  <li>→ <Link href="https://uwplanit.com" target="_blank" className="underline hover:text-primary/80 transition-colors">UWPlanit</Link>: Course graph & planner</li>
+                  <li>→ <Link href="https://al-dente.site" target="_blank" className="underline hover:text-primary/80 transition-colors">AI Dente</Link>: AI-powered pantry manager</li>
+                  <li>→ <Link href="https://github.com/will2dai4/RaiderStrike-Server" target="_blank" className="underline hover:text-primary/80 transition-colors">RaiderStrike</Link>: Multiplayer shooter game</li>
                 </ul>
               </div>
 
@@ -43,8 +42,18 @@ export default function Home() {
                 </h2>
                 <ul className="space-y-1 text-muted-foreground pl-4">
                   <li>→ Full-stack development with Django, PostgreSQL, Next.js</li>
-                  <li>→ Built automation tools increasing sales outreach by 10x</li>
                   <li>→ Hackathon organizer & founder</li>
+                  <li>→ Volunteer research at the University of Toronto</li>
+                </ul>
+              </div>
+
+              {/* Courses */}
+              <div className="space-y-2">
+                <h2 className="text-lg text-primary">
+                  $ cat <Link href="/courses" className="underline hover:text-primary/80 transition-colors">courses </Link>
+                </h2>
+                <ul className="space-y-1 text-muted-foreground pl-4">
+                  <li>→ 2A: CS246E, CS245E, MATH239, STAT230, CLAS104</li>
                 </ul>
               </div>
 
@@ -67,6 +76,13 @@ export default function Home() {
                     [LinkedIn]
                   </Link>
                   <Link
+                    href="https://x.com/William2Dai"
+                    target="_blank"
+                    className="text-terminal-green hover:text-primary transition-colors"
+                  >
+                    [X (Twitter)]
+                  </Link>
+                  <Link
                     href="mailto:william.dai@uwaterloo.ca"
                     className="text-terminal-green hover:text-primary transition-colors"
                   >
@@ -85,7 +101,7 @@ export default function Home() {
       </div>
 
       {/* Right Terminal Area */}
-      <div className="hidden lg:block lg:w-1/2 p-8 lg:p-16 border-l border-border">
+      <div className="hidden lg:block lg:w-1/2 p-8 lg:p-16 border-l border-border h-screen overflow-hidden">
         <div className="h-full">
           <Terminal currentPath="" />
         </div>
