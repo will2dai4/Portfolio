@@ -15,14 +15,43 @@ interface CommandHistory {
 }
 
 export function Terminal({ currentPath }: TerminalProps) {
+  // Load from session storage or initialize with welcome message
+  const loadHistory = (): CommandHistory[] => {
+    if (typeof window !== 'undefined') {
+      const saved = sessionStorage.getItem('terminal-history')
+      if (saved) {
+        try {
+          return JSON.parse(saved)
+        } catch (e) {
+          // Fall back to default if parsing fails
+        }
+      }
+    }
+    return [
+      {
+        command: "",
+        output: ["Welcome to William Dai's Portfolio Terminal", 'Type "help" for available commands', ""],
+      },
+    ]
+  }
+
+  const loadCommandHistory = (): string[] => {
+    if (typeof window !== 'undefined') {
+      const saved = sessionStorage.getItem('terminal-command-history')
+      if (saved) {
+        try {
+          return JSON.parse(saved)
+        } catch (e) {
+          // Fall back to empty array if parsing fails
+        }
+      }
+    }
+    return []
+  }
+
   const [input, setInput] = useState("")
-  const [history, setHistory] = useState<CommandHistory[]>([
-    {
-      command: "",
-      output: ["Welcome to William Dai's Portfolio Terminal", 'Type "help" for available commands', ""],
-    },
-  ])
-  const [commandHistory, setCommandHistory] = useState<string[]>([])
+  const [history, setHistory] = useState<CommandHistory[]>(loadHistory)
+  const [commandHistory, setCommandHistory] = useState<string[]>(loadCommandHistory)
   const [historyIndex, setHistoryIndex] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
   const terminalRef = useRef<HTMLDivElement>(null)
@@ -46,7 +75,7 @@ export function Terminal({ currentPath }: TerminalProps) {
     },
     ls: {
       description: "List available pages",
-      action: () => ["home", "  projects", "  experiences", ""],
+      action: () => ["home", "  projects", "  blogs", "  courses", ""],
     },
     cd: {
       description: "Navigate to a page",
@@ -65,6 +94,9 @@ export function Terminal({ currentPath }: TerminalProps) {
         } else if (page === "blogs") {
           router.push("/blogs")
           return ["Navigating to blogs..."]
+        } else if (page === "courses") {
+          router.push("/courses")
+          return ["Navigating to courses..."]
         } else {
           return [`cd: ${page}: No such page`, 'Try "ls" to see available pages', ""]
         }
@@ -78,6 +110,9 @@ export function Terminal({ currentPath }: TerminalProps) {
       description: "Clear terminal",
       action: () => {
         setHistory([])
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('terminal-history', JSON.stringify([]))
+        }
         return []
       },
     },
@@ -165,6 +200,20 @@ export function Terminal({ currentPath }: TerminalProps) {
       }
     }
   }
+
+  // Save history to session storage whenever it changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('terminal-history', JSON.stringify(history))
+    }
+  }, [history])
+
+  // Save command history to session storage whenever it changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('terminal-command-history', JSON.stringify(commandHistory))
+    }
+  }, [commandHistory])
 
   useEffect(() => {
     if (terminalRef.current) {
