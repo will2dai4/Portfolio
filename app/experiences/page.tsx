@@ -17,17 +17,66 @@ interface Experience {
 const experiences: Experience[] = [
   {
     position: "Software Engineering Intern",
-    company: "Forbest Products",
+    company: "Forbest Product Co.",
     startDate: "2025-05",
     endDate: "2025-08",
-    description: "Built a sales lead generating internal web application using Next.js, TypeScript, Django, PostgreSQL, and AWS Lambda.",
+    description: "Designed and developed a full-stack application to automate and streamline sales prospecting.",
     details: [
-      "Developed full-stack features using Next.js, TypeScript, Django, and PostgreSQL",
-      "Implemented AWS Lambda functions for serverless backend processing",
-      "Streamlined sales prospecting workflow and increased team productivity"
+      "Designed and developed a full-stack app to automate and streamline sales prospecting and increase outreach by 10x.",
+      "Built a POC and subsequently an end-to-end version using a Django, PostgreSQL, HTTP API, and Next.js.",
+      "Received positive feedback from sales teams on the functionality of the applications and increased sales calls by 24%."
     ],
-    tech: ["Next.js", "TypeScript", "Django", "PostgreSQL", "AWS Lambda"]
+    tech: ["Next.js", "TypeScript", "Django", "PostgreSQL", "HTTP API", "AWS Lambda"]
+  },
+  {
+    position: "Web Designer Contractor",
+    company: "TCE Machinery",
+    startDate: "2025-02",
+    endDate: "2025-03",
+    description: "Designed and developed the website for TCE Machinery using the Shopify store.",
+    details: [
+      "Designed and developed the website for TCE Machinery using the Shopify store",
+      "Implemented features using Shopify's Liquid and Liquid Theme Editor",
+      "Managed SEO and increased website traffic by 100% and sales by 22%"
+    ],
+    tech: ["Shopify", "JavaScript", "Liquid", "Liquid Theme Editor"]
+  },
+  {
+    position: "Outreach Executive",
+    company: "YRHacks 2024 Hackathon",
+    startDate: "2023-09",
+    endDate: "2024-05",
+    description: "Organized Canada's largest high school hackathon, focusing on logistics and outreach.",
+    details: [
+      "Organized Canada's largest high school hackathon (450+ hackers, 7+ sponsors) managing logistics and outreach."
+    ],
+    tech: []
+  },
+  {
+    position: "Founder and President",
+    company: "Equinox Coding: SpringHacks 2023 & WinterHacks 2024",
+    startDate: "2022-11",
+    endDate: "2024-02",
+    description: "Led organization of two virtual hackathons, overseeing finances, marketing, and partnerships.",
+    details: [
+      "Manage finances, marketing and lead a team to organize 2 vitual hackathons mid- and post-COVID.",
+      "Managed outreach of sponsors and participants to arrange $8000+ in prizes, with 120+ participants."
+    ],
+    tech: []
+  },
+  {
+    position: "Summer Lab Volunteer",
+    company: "University of Toronto, Department of Computer Science",
+    startDate: "2022-05",
+    endDate: "2022-08",
+    description: "Supported academic publishing efforts within the algorithms research group.",
+    details: [
+      "Proofread and formatted Professor Allan Borodin's book Online and Other Myopic Algorithms.",
+      "Corrected errors and provided suggestions to save 60+ hours in the proofreading step."
+    ],
+    tech: []
   }
+
 ]
 
 export default function ExperiencesPage() {
@@ -72,7 +121,7 @@ export default function ExperiencesPage() {
             <p className="text-sm text-muted-foreground mb-2">Search by position, company, or description:</p>
             <input
               type="text"
-              placeholder="e.g., Software Engineering Intern or Forbest..."
+              placeholder="e.g., Software Engineering..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-3 py-2 bg-muted border border-border rounded focus:outline-none focus:ring-2 focus:ring-terminal-green focus:border-transparent"

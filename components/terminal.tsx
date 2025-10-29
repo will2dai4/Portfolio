@@ -75,7 +75,7 @@ export function Terminal({ currentPath }: TerminalProps) {
     },
     ls: {
       description: "List available pages",
-      action: () => ["home", "  projects", "  blogs", "  courses", ""],
+      action: () => ["home", "  projects", "  experiences", "  courses", ""],
     },
     cd: {
       description: "Navigate to a page",
@@ -91,6 +91,9 @@ export function Terminal({ currentPath }: TerminalProps) {
         } else if (page === "projects") {
           router.push("/projects")
           return ["Navigating to projects..."]
+        } else if (page === "experiences") {
+          router.push("/experiences")
+          return ["Navigating to experiences..."]
         } else if (page === "blogs") {
           router.push("/blogs")
           return ["Navigating to blogs..."]
