@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "William Dai | Software Engineer",
   description: "Portfolio of William Dai - Computer Science student at University of Waterloo",
   generator: "v0.app",
+  icons: {
+    icon: "/portfolio_logo.png",
+  },
 }
 
 export default function RootLayout({
