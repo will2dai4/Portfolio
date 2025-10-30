@@ -4,6 +4,7 @@ import { Terminal } from "@/components/terminal"
 import { TypingText } from "@/components/typing-text"
 import { useState } from "react"
 import Link from "next/link"
+import { Icon } from "@iconify/react"
 
 export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
@@ -64,31 +65,43 @@ export default function Home() {
                 <h2 className="text-lg text-primary">$ cat links</h2>
                 <div className="flex flex-wrap gap-4 pl-4">
                   <Link
+                    href="https://drive.google.com/file/d/1v7Do_SXtoKddGJR62cIPM0MPUSUmmAxw/view?usp=sharing"
+                    target="_blank"
+                    className="inline-block w-7 h-7 text-terminal-green hover:text-primary transition-colors"
+                    aria-label="Resume"
+                  >
+                    <Icon icon="line-md:file" width="28" height="28" />
+                  </Link>
+                  <Link
                     href="https://github.com/will2dai4"
                     target="_blank"
-                    className="text-terminal-green hover:text-primary transition-colors"
+                    className="inline-block w-7 h-7 text-terminal-green hover:text-primary transition-colors"
+                    aria-label="GitHub"
                   >
-                    [GitHub]
+                    <Icon icon="line-md:github" width="28" height="28" />
                   </Link>
                   <Link
                     href="https://linkedin.com/in/william-dai-uw"
                     target="_blank"
-                    className="text-terminal-green hover:text-primary transition-colors"
+                    className="inline-block w-7 h-7 text-terminal-green hover:text-primary transition-colors"
+                    aria-label="LinkedIn"
                   >
-                    [LinkedIn]
+                    <Icon icon="line-md:linkedin" width="28" height="28" />
                   </Link>
                   <Link
                     href="https://x.com/William2Dai"
                     target="_blank"
-                    className="text-terminal-green hover:text-primary transition-colors"
+                    className="inline-block w-7 h-7 text-terminal-green hover:text-primary transition-colors"
+                    aria-label="X (Twitter)"
                   >
-                    [X (Twitter)]
+                    <Icon icon="line-md:twitter-x-alt" width="28" height="28" />
                   </Link>
                   <Link
                     href="mailto:william.dai@uwaterloo.ca"
-                    className="text-terminal-green hover:text-primary transition-colors"
+                    className="inline-block w-7 h-7 text-terminal-green hover:text-primary transition-colors"
+                    aria-label="Email"
                   >
-                    [Email]
+                    <Icon icon="line-md:email" width="28" height="28" />
                   </Link>
                 </div>
               </div>
@@ -96,7 +109,7 @@ export default function Home() {
               {/* Terminal hint */}
               <div className="pt-8 text-sm text-muted-foreground">
                 <p>Try the terminal on the right →</p>
-                <p className="text-xs mt-1">Type "help" to see available commands</p>
+                <p className="mt-1">Type "help" to see available commands</p>
               </div>
           </div>
         </div>
