@@ -41,9 +41,9 @@ const projects = [
 export default function ProjectsPage() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
   return (
-    <div className="min-h-screen flex">
+    <div className="h-screen flex">
       {/* Left Content Area */}
-      <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col">
+      <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col overflow-y-auto">
         <div className="max-w-2xl space-y-8">
           {/* Header */}
           <div className="space-y-4">
@@ -94,7 +94,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Right Terminal Area */}
-      <div className="hidden lg:block lg:w-1/2 p-8 lg:p-16 border-l border-border">
+      <div className="hidden lg:block lg:w-1/2 p-8 lg:p-16 border-l border-border h-screen overflow-hidden">
         <div className="h-full">
           <Terminal currentPath="projects" />
         </div>

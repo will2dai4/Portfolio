@@ -8,9 +8,9 @@ import Link from "next/link"
 export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
   return (
-    <div className="h-screen flex overflow-hidden">
+    <div className="h-screen flex">
       {/* Left Content Area */}
-      <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center">
+      <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col lg:justify-center overflow-y-auto">
         <div className="max-w-2xl space-y-8">
           {/* Header with typing animation */}
           <div className="space-y-2">

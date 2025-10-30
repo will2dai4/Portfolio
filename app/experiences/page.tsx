@@ -102,9 +102,9 @@ export default function ExperiencesPage() {
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div className="h-screen flex">
       {/* Left Content Area */}
-      <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col">
+      <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col overflow-y-auto">
         <div className="max-w-2xl space-y-8">
           {/* Header */}
           <div className="space-y-4">
