@@ -16,13 +16,9 @@ interface CommandHistory {
 
 export function Terminal({ currentPath }: TerminalProps) {
   const [input, setInput] = useState("")
+  const isHydratedRef = useRef(false)
   // Initialize with deterministic SSR-safe defaults; hydrate from sessionStorage after mount
-  const [history, setHistory] = useState<CommandHistory[]>([
-    {
-      command: "",
-      output: ["Welcome to William Dai's Portfolio Terminal", 'Type "help" for available commands', ""],
-    },
-  ])
+  const [history, setHistory] = useState<CommandHistory[]>([])
   const [commandHistory, setCommandHistory] = useState<string[]>([])
   const [historyIndex, setHistoryIndex] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -47,7 +43,7 @@ export function Terminal({ currentPath }: TerminalProps) {
     },
     ls: {
       description: "List available pages",
-      action: () => ["home", "  projects", "  experiences", "  courses", ""],
+      action: () => ["home", "  projects", "  experiences", "  courses", "  blogs", ""],
     },
     cd: {
       description: "Navigate to a page",
@@ -178,32 +174,69 @@ export function Terminal({ currentPath }: TerminalProps) {
 
   // Hydrate from session storage on mount only (prevents SSR/client mismatch)
   useEffect(() => {
+    if (typeof window === 'undefined') return
+    
     try {
-      const savedHistory = typeof window !== 'undefined' ? sessionStorage.getItem('terminal-history') : null
-      if (savedHistory) {
-        const parsed = JSON.parse(savedHistory)
-        if (Array.isArray(parsed)) setHistory(parsed)
-      }
-      const savedCmdHistory = typeof window !== 'undefined' ? sessionStorage.getItem('terminal-command-history') : null
+      // Load command history
+      const savedCmdHistory = sessionStorage.getItem('terminal-command-history')
       if (savedCmdHistory) {
         const parsed = JSON.parse(savedCmdHistory)
-        if (Array.isArray(parsed)) setCommandHistory(parsed)
+        if (Array.isArray(parsed)) {
+          setCommandHistory(parsed)
+        }
       }
-    } catch {
-      // ignore malformed storage
+
+      // Load display history
+      const savedHistory = sessionStorage.getItem('terminal-history')
+      if (savedHistory) {
+        const parsed = JSON.parse(savedHistory)
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setHistory(parsed)
+          // Mark as hydrated AFTER setting history to prevent immediate re-save
+          setTimeout(() => {
+            isHydratedRef.current = true
+          }, 0)
+          return
+        }
+      }
+      
+      // If no saved history, show welcome message (only on first visit)
+      const welcomeHistory = [
+        {
+          command: "",
+          output: ["Welcome to William Dai's Portfolio Terminal", 'Type "help" for available commands', ""],
+        },
+      ]
+      setHistory(welcomeHistory)
+      // Mark as hydrated AFTER setting history
+      setTimeout(() => {
+        isHydratedRef.current = true
+      }, 0)
+    } catch (error) {
+      // ignore malformed storage, show welcome message
+      console.error('Failed to load terminal history:', error)
+      setHistory([
+        {
+          command: "",
+          output: ["Welcome to William Dai's Portfolio Terminal", 'Type "help" for available commands', ""],
+        },
+      ])
+      setTimeout(() => {
+        isHydratedRef.current = true
+      }, 0)
     }
   }, [])
 
-  // Save history to session storage whenever it changes
+  // Save history to session storage whenever it changes (only after hydration)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (isHydratedRef.current && typeof window !== 'undefined') {
       sessionStorage.setItem('terminal-history', JSON.stringify(history))
     }
   }, [history])
 
-  // Save command history to session storage whenever it changes
+  // Save command history to session storage whenever it changes (only after hydration)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (isHydratedRef.current && typeof window !== 'undefined') {
       sessionStorage.setItem('terminal-command-history', JSON.stringify(commandHistory))
     }
   }, [commandHistory])
