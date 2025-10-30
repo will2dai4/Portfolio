@@ -143,6 +143,7 @@ export default function CoursesPage() {
   const [selectedTerm, setSelectedTerm] = useState<string | null>(null)
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false)
 
   // Extract subject from course code (e.g., "CS 245E" -> "CS")
   const getSubject = (code: string): string => {
@@ -273,9 +274,29 @@ export default function CoursesPage() {
         </div>
       </div>
 
-      {/* Mobile Terminal (bottom) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 h-64 border-t border-border bg-background">
-        <Terminal currentPath="courses" />
+      {/* Mobile Terminal (right slide-out) */}
+      <div className="lg:hidden">
+        <div
+          className={`fixed inset-y-0 right-0 z-40 w-80 max-w-[85vw] border-l border-border bg-background transform transition-transform duration-300 ${isTerminalOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
+          <div className="h-full p-4 overflow-hidden">
+            <Terminal currentPath="courses" />
+          </div>
+        </div>
+
+        <button
+          aria-label={isTerminalOpen ? "Close terminal" : "Open terminal"}
+          onClick={() => setIsTerminalOpen(!isTerminalOpen)}
+          className="fixed z-50 right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rounded-full border border-border bg-background/80 backdrop-blur px-2 py-2 shadow hover:bg-muted transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-muted-foreground">
+            {isTerminalOpen ? (
+              <path fillRule="evenodd" d="M8.47 4.47a.75.75 0 0 1 1.06 0l7 7a.75.75 0 0 1 0 1.06l-7 7a.75.75 0 1 1-1.06-1.06L14.94 12 8.47 5.53a.75.75 0 0 1 0-1.06z" clipRule="evenodd" />
+            ) : (
+              <path fillRule="evenodd" d="M15.53 4.47a.75.75 0 0 1 0 1.06L9.06 12l6.47 6.47a.75.75 0 1 1-1.06 1.06l-7-7a.75.75 0 0 1 0-1.06l7-7a.75.75 0 0 1 1.06 0z" clipRule="evenodd" />
+            )}
+          </svg>
+        </button>
       </div>
     </div>
   )
