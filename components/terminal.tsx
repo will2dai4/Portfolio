@@ -43,7 +43,7 @@ export function Terminal({ currentPath }: TerminalProps) {
     },
     ls: {
       description: "List available pages",
-      action: () => ["home", "  projects", "  experiences", "  courses", "  blogs", ""],
+      action: () => ["home", "  projects", "  experiences", "  courses", ""],
     },
     cd: {
       description: "Navigate to a page",

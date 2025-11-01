@@ -4,6 +4,7 @@ import { Terminal } from "@/components/terminal"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Footer from "@/components/footer"
 import { useState } from "react"
 
 interface Course {
@@ -259,11 +260,7 @@ export default function CoursesPage() {
             ))}
           </div>
 
-          {/* Footer note */}
-          <div className="pt-8 text-sm text-muted-foreground border-t border-border">
-            <p>Course listings updated as of current term</p>
-            <p className="text-xs mt-1">Check back for new courses each term</p>
-          </div>
+          <Footer /> 
         </div>
       </div>
 

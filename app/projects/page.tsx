@@ -3,6 +3,7 @@
 import { Terminal } from "@/components/terminal"
 import Link from "next/link"
 import { useState } from "react"
+import Footer from "@/components/footer"
 
 const projects = [
   {
@@ -148,11 +149,7 @@ export default function ProjectsPage() {
             ))}
           </div>
 
-          {/* Footer note */}
-          <div className="pt-8 text-sm text-muted-foreground border-t border-border">
-            <p>More projects coming soon...</p>
-            <p className="text-xs mt-1">Check out my GitHub for additional work</p>
-          </div>
+          <Footer /> 
         </div>
       </div>
 

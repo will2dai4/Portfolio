@@ -5,6 +5,7 @@ import { TypingText } from "@/components/typing-text"
 import { useState } from "react"
 import Link from "next/link"
 import { Icon } from "@iconify/react"
+import Footer from "@/components/footer"
 
 export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
@@ -105,12 +106,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-
-              {/* Terminal hint */}
-              <div className="pt-8 text-sm text-muted-foreground">
-                <p>Try the terminal on the right →</p>
-                <p className="mt-1">Type "help" to see available commands</p>
-              </div>
+              <Footer />
           </div>
         </div>
       </div>

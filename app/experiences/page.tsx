@@ -3,6 +3,7 @@
 import { Terminal } from "@/components/terminal"
 import Link from "next/link"
 import { useState } from "react"
+import Footer from "@/components/footer"
 
 interface Experience {
   position: string
@@ -159,11 +160,7 @@ export default function ExperiencesPage() {
             ))}
           </div>
 
-          {/* Footer note */}
-          <div className="pt-8 text-sm text-muted-foreground border-t border-border">
-            <p>Experience listings updated regularly</p>
-            <p className="text-xs mt-1">Check back for new experiences and updates</p>
-          </div>
+          <Footer /> 
         </div>
       </div>
 

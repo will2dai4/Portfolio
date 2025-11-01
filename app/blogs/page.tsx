@@ -3,27 +3,14 @@
 import { Terminal } from "@/components/terminal"
 import Link from "next/link"
 import { useState } from "react"
-
+import Footer from "@/components/footer"
 const blogs = [
   {
-    title: "Building a Terminal-Themed Portfolio",
-    date: "2025-01-15",
-    preview: "How I created an interactive terminal experience for my portfolio site using Next.js and TypeScript...",
-    tags: ["Next.js", "TypeScript", "Web Design"],
-  },
-  {
-    title: "My Journey at University of Waterloo",
-    date: "2024-12-10",
-    preview: "Reflections on my first year studying Computer Science at UWaterloo and the lessons learned...",
-    tags: ["Education", "Personal"],
-  },
-  {
-    title: "Organizing YRHacks 2024",
-    date: "2024-05-20",
-    preview:
-      "Behind the scenes of organizing Ontario's largest high-school-run hackathon and managing sponsor relationships...",
-    tags: ["Hackathons", "Leadership"],
-  },
+    title: "Coming soon...",
+    date: "",
+    preview: "",
+    tags: [],
+  }
 ]
 
 export default function BlogsPage() {
@@ -70,11 +57,7 @@ export default function BlogsPage() {
             ))}
           </div>
 
-          {/* Coming soon message */}
-          <div className="pt-8 text-sm text-muted-foreground border-t border-border">
-            <p>$ echo "More posts coming soon..."</p>
-            <p className="text-xs mt-1 pl-4">→ Currently working on new content</p>
-          </div>
+          <Footer /> 
         </div>
       </div>
 
