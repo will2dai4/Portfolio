@@ -35,31 +35,6 @@ A modern, terminal-themed portfolio website built with Next.js 15 and TypeScript
 - [Geist Font](https://vercel.com/font) - Monospace font
 - Session Storage - Terminal history persistence
 
-## Project Structure
-
-```
-portfolio/
-├── app/
-│   ├── page.tsx              # Home page
-│   ├── layout.tsx            # Root layout
-│   ├── projects/page.tsx     # Projects showcase
-│   ├── experiences/page.tsx  # Professional experiences
-│   ├── courses/page.tsx      # Academic courses
-│   ├── blogs/page.tsx        # Blog posts
-│   └── globals.css           # Global styles
-├── components/
-│   ├── terminal.tsx          # Interactive terminal component
-│   ├── typing-text.tsx       # Typing animation component
-│   ├── theme-provider.tsx    # Theme context provider
-│   └── ui/                   # shadcn/ui components
-├── lib/
-│   └── utils.ts              # Utility functions
-├── hooks/                    # Custom React hooks
-├── public/
-│   └── portfolio_logo.png    # Site logo
-└── package.json
-```
-
 ## Terminal Commands
 
 The interactive terminal supports the following commands:
