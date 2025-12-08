@@ -18,7 +18,16 @@ interface Experience {
 const experiences: Experience[] = [
   {
     position: "Software Engineering Intern",
-    company: "Forbest Product Co.",
+    company: "Fable Security",
+    startDate: "2026-01",
+    endDate: "2026-04",
+    description: "",
+    details: [],
+    tech: []
+  },
+  {
+    position: "Software Engineering Intern",
+    company: "Forbest Product",
     startDate: "2025-05",
     endDate: "2025-08",
     description: "Designed and developed a full-stack application to automate and streamline sales prospecting.",
