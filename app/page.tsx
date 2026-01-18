@@ -22,11 +22,25 @@ export default function Home() {
                 delay={80}
               />
             </h1>
+            <p className="text-xl text-muted-foreground">SWE Intern @ Fable Security</p>
             <p className="text-xl text-muted-foreground">CS @ University of Waterloo</p>
           </div>
 
           {/* Quick points */}
           <div className="space-y-4">
+
+              {/* Experiences */}
+              <div className="space-y-2">
+                <h2 className="text-lg text-primary">
+                  $ cat <Link href="/experiences" className="underline hover:text-primary/80 transition-colors">experiences</Link>
+                </h2>
+                <ul className="space-y-1 text-muted-foreground pl-4">
+                  <li>→ Full-stack development with Django, PostgreSQL, React</li>
+                  <li>→ Hackathon organizer & founder</li>
+                  <li>→ Volunteer research at the University of Toronto</li>
+                </ul>
+              </div>
+
               {/* Projects */}
               <div className="space-y-2">
                 <h2 className="text-lg text-primary">
@@ -36,18 +50,6 @@ export default function Home() {
                   <li>→ <Link href="https://uwplanit.com" target="_blank" className="underline hover:text-primary/80 transition-colors">UWPlanit</Link>: Course graph & planner</li>
                   <li>→ <Link href="https://al-dente.site" target="_blank" className="underline hover:text-primary/80 transition-colors">AI Dente</Link>: AI-powered pantry manager</li>
                   <li>→ <Link href="https://github.com/will2dai4/RaiderStrike-Server" target="_blank" className="underline hover:text-primary/80 transition-colors">RaiderStrike</Link>: Multiplayer shooter game</li>
-                </ul>
-              </div>
-
-              {/* Experiences */}
-              <div className="space-y-2">
-                <h2 className="text-lg text-primary">
-                  $ cat <Link href="/experiences" className="underline hover:text-primary/80 transition-colors">experiences</Link>
-                </h2>
-                <ul className="space-y-1 text-muted-foreground pl-4">
-                  <li>→ Full-stack development with Django, PostgreSQL, Next.js</li>
-                  <li>→ Hackathon organizer & founder</li>
-                  <li>→ Volunteer research at the University of Toronto</li>
                 </ul>
               </div>
 

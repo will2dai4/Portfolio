@@ -23,7 +23,7 @@ const experiences: Experience[] = [
     endDate: "2026-04",
     description: "",
     details: [],
-    tech: []
+    tech: ["Python", "TypeScript", "React", "Django", "PostgreSQL", "GraphQL"]
   },
   {
     position: "Software Engineering Intern",
@@ -36,7 +36,7 @@ const experiences: Experience[] = [
       "Built a POC and subsequently an end-to-end version using a Django, PostgreSQL, HTTP API, and Next.js.",
       "Received positive feedback from sales teams on the functionality of the applications and increased sales calls by 24%."
     ],
-    tech: ["Next.js", "TypeScript", "Django", "PostgreSQL", "HTTP API", "AWS Lambda"]
+    tech: ["Next.js", "TypeScript", "Django", "PostgreSQL", "REST API", "AWS Lambda"]
   },
   {
     position: "Web Designer Contractor",
