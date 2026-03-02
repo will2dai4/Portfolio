@@ -105,9 +105,13 @@ export default function ExperiencesPage() {
   })
 
   // Format date range
+  const formatMonthYear = (dateStr: string) => {
+    const [year, month] = dateStr.split("-").map(Number)
+    return new Date(year, month - 1, 1).toLocaleDateString("en-US", { month: "short", year: "numeric" })
+  }
   const formatDateRange = (startDate: string, endDate: string) => {
-    const start = new Date(startDate + "-01").toLocaleDateString("en-US", { month: "short", year: "numeric" })
-    const end = endDate === "Present" ? "Present" : new Date(endDate + "-01").toLocaleDateString("en-US", { month: "short", year: "numeric" })
+    const start = formatMonthYear(startDate)
+    const end = endDate === "Present" ? "Present" : formatMonthYear(endDate)
     return `${start} - ${end}`
   }
 
