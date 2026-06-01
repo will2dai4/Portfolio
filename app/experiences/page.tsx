@@ -21,9 +21,13 @@ const experiences: Experience[] = [
     company: "Fable Security",
     startDate: "2026-01",
     endDate: "2026-04",
-    description: "",
-    details: [],
-    tech: ["Python", "TypeScript", "React", "Django", "PostgreSQL", "GraphQL"]
+    description: "Built scalable media and content customization systems for enterprise security training.",
+    details: [
+      "Designed and implemented a PostgreSQL + Redis caching layer to support 8 million+ weekly requests, reducing video generation and delivery time from weeks to hours and furthering platform scalability.",
+      "Refactored media upload infrastructure in AWS S3 and Django to optimally serve clients with 100k+ employees.",
+      "Built an agentic feature for content customization to 200+ companies, helping book 11 clients at RSAC."
+    ],
+    tech: ["Python", "TypeScript", "React", "Django", "PostgreSQL", "Redis", "AWS S3", "GraphQL"]
   },
   {
     position: "Software Engineering Intern",

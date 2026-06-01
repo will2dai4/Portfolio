@@ -15,6 +15,37 @@ interface Course {
 }
 
 const courses: Course[] = [
+  // Spring 2026 - 2B
+  {
+    code: "CS 240E",
+    name: "Data Structures & Data Mgmt (Enrich)",
+    description: "Data organization, priority queues, sorting, dictionaries, and text-processing structures.",
+    term: "2B"
+  },
+  {
+    code: "CS 241",
+    name: "Foundations of Sequential Programs",
+    description: "Machine architecture, assemblers, language translation, linkers, loaders, and parameter passing.",
+    term: "2B"
+  },
+  {
+    code: "CS 251",
+    name: "Computer Organization & Design",
+    description: "Digital logic, data representation, processor design, pipelining, memory, and multiprocessors.",
+    term: "2B"
+  },
+  {
+    code: "STAT 231",
+    name: "Statistics",
+    description: "Empirical studies, statistical models, estimation, hypothesis testing, and regression.",
+    term: "2B"
+  },
+  {
+    code: "AMATH 250",
+    name: "Intro Differential Equations",
+    description: "Differential equations, dimensional analysis, Laplace transforms, and series solutions.",
+    term: "2B"
+  },
   // Fall 2025 - 2A
   {
     code: "CS 245E",

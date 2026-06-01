@@ -22,7 +22,7 @@ export default function Home() {
                 delay={80}
               />
             </h1>
-            <p className="text-xl text-muted-foreground">SWE Intern @ Fable Security</p>
+            <p className="text-xl text-muted-foreground">Prev @ Fable Security</p>
             <p className="text-xl text-muted-foreground">CS @ University of Waterloo</p>
           </div>
 
@@ -59,7 +59,7 @@ export default function Home() {
                   $ cat <Link href="/courses" className="underline hover:text-primary/80 transition-colors">courses </Link>
                 </h2>
                 <ul className="space-y-1 text-muted-foreground pl-4">
-                  <li>→ 2A: CS246E, CS245E, MATH239, STAT230, CLAS104</li>
+                  <li>→ 2B: CS240E, CS241, CS251, STAT231, AMATH250</li>
                 </ul>
               </div>
 
@@ -68,7 +68,7 @@ export default function Home() {
                 <h2 className="text-lg text-primary">$ cat links</h2>
                 <div className="flex flex-wrap gap-4 pl-4">
                   <Link
-                    href="https://drive.google.com/file/d/1v7Do_SXtoKddGJR62cIPM0MPUSUmmAxw/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1KZaKkeq6mtF_Tp4oZ4jDHLOm1auuwWJx/view?usp=sharing"
                     target="_blank"
                     className="inline-block w-7 h-7 text-terminal-green hover:text-primary transition-colors"
                     aria-label="Resume"
