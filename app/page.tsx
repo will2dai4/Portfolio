@@ -22,7 +22,7 @@ export default function Home() {
                 delay={80}
               />
             </h1>
-            <p className="text-xl text-muted-foreground">Prev @ Fable Security</p>
+            <p className="text-xl text-muted-foreground">Infra @ Shopify | Prev @ Fable Security</p>
             <p className="text-xl text-muted-foreground">CS @ University of Waterloo</p>
           </div>
 
