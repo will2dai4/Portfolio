@@ -186,41 +186,24 @@ export function Terminal({ currentPath }: TerminalProps) {
         }
       }
 
-      // Load display history
+      // Load display history (the welcome banner is rendered statically, never stored)
       const savedHistory = sessionStorage.getItem('terminal-history')
       if (savedHistory) {
         const parsed = JSON.parse(savedHistory)
         if (Array.isArray(parsed) && parsed.length > 0) {
-          setHistory(parsed)
-          // Mark as hydrated AFTER setting history to prevent immediate re-save
-          setTimeout(() => {
-            isHydratedRef.current = true
-          }, 0)
-          return
+          // Drop any welcome entry saved by an older version of this component
+          setHistory(parsed.filter((item) => item.output?.[0] !== "Welcome to William Dai's Portfolio Terminal"))
         }
       }
-      
-      // If no saved history, show welcome message (only on first visit)
-      const welcomeHistory = [
-        {
-          command: "",
-          output: ["Welcome to William Dai's Portfolio Terminal", 'Type "help" for available commands', ""],
-        },
-      ]
-      setHistory(welcomeHistory)
-      // Mark as hydrated AFTER setting history
+
+      // Mark as hydrated AFTER setting history to prevent immediate re-save
       setTimeout(() => {
         isHydratedRef.current = true
       }, 0)
     } catch (error) {
-      // ignore malformed storage, show welcome message
+      // ignore malformed storage, start with an empty scrollback
       console.error('Failed to load terminal history:', error)
-      setHistory([
-        {
-          command: "",
-          output: ["Welcome to William Dai's Portfolio Terminal", 'Type "help" for available commands', ""],
-        },
-      ])
+      setHistory([])
       setTimeout(() => {
         isHydratedRef.current = true
       }, 0)
@@ -261,7 +244,12 @@ export function Terminal({ currentPath }: TerminalProps) {
         <span className="text-sm text-muted-foreground">terminal</span>
       </div>
 
-      <div ref={terminalRef} className="flex-1 overflow-y-auto space-y-2 mb-4">
+      <div ref={terminalRef} className="flex-1 overflow-y-auto space-y-2">
+        <div>
+          <div className="text-muted-foreground">Welcome to William Dai's Portfolio Terminal</div>
+          <div className="text-muted-foreground">Type "help" for available commands</div>
+        </div>
+
         {history.map((item, i) => (
           <div key={i}>
             {item.command && (
@@ -277,20 +265,20 @@ export function Terminal({ currentPath }: TerminalProps) {
             ))}
           </div>
         ))}
-      </div>
 
-      <div className="flex gap-2 items-center">
-        <span className="text-terminal-green whitespace-nowrap">guest@portfolio:~$</span>
-        <input
-          ref={inputRef}
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          className="flex-1 bg-transparent border-none outline-none text-foreground"
-          autoFocus
-          spellCheck={false}
-        />
+        <div className="flex gap-2 items-center">
+          <span className="text-terminal-green whitespace-nowrap">guest@portfolio:~$</span>
+          <input
+            ref={inputRef}
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="flex-1 bg-transparent border-none outline-none text-foreground"
+            autoFocus
+            spellCheck={false}
+          />
+        </div>
       </div>
     </div>
   )
