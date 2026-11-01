@@ -17,7 +17,7 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    position: "Infrastructure Engineering Intern",
+    position: "Software Engineering Intern",
     company: "Shopify",
     startDate: "2026-09",
     endDate: "Present",
