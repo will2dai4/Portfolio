@@ -192,7 +192,7 @@ export default function ExperiencesPage() {
       </div>
 
       {/* Right Terminal Area */}
-      <div className="hidden lg:block lg:w-1/2 p-8 lg:p-16 border-l border-border h-screen overflow-hidden">
+      <div className="hidden lg:block lg:w-1/2 p-8 lg:p-16 h-screen overflow-hidden">
         <div className="h-full">
           <Terminal currentPath="experiences" />
         </div>
