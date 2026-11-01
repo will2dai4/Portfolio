@@ -48,29 +48,21 @@ export function Terminal({ currentPath }: TerminalProps) {
     cd: {
       description: "Navigate to a page",
       action: (args) => {
-        if (args.length === 0) {
-          router.push("/")
-          return ["Navigating to home..."]
+        const page = (args[0] ?? "home").toLowerCase()
+        const routes: Record<string, string> = {
+          home: "/",
+          "/": "/",
+          "~": "/",
+          projects: "/projects",
+          experiences: "/experiences",
+          blogs: "/blogs",
+          courses: "/courses",
         }
-        const page = args[0].toLowerCase()
-        if (["home", "/", "~"].includes(page)) {
-          router.push("/")
-          return ["Navigating to home..."]
-        } else if (page === "projects") {
-          router.push("/projects")
-          return ["Navigating to projects..."]
-        } else if (page === "experiences") {
-          router.push("/experiences")
-          return ["Navigating to experiences..."]
-        } else if (page === "blogs") {
-          router.push("/blogs")
-          return ["Navigating to blogs..."]
-        } else if (page === "courses") {
-          router.push("/courses")
-          return ["Navigating to courses..."]
-        } else {
-          return [`cd: ${page}: No such page`, 'Try "ls" to see available pages', ""]
+        if (Object.prototype.hasOwnProperty.call(routes, page)) {
+          router.push(routes[page])
+          return []
         }
+        return [`cd: ${page}: No such page`, 'Try "ls" to see available pages', ""]
       },
     },
     pwd: {
@@ -93,7 +85,6 @@ export function Terminal({ currentPath }: TerminalProps) {
         "William Dai",
         "Computer Science @ University of Waterloo",
         "Software Engineer",
-        "Expected Graduation: 2028",
         "",
       ],
     },
